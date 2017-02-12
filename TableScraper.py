@@ -17,13 +17,13 @@ def get_data_table(url, page):
 		return table
 
 def get_headings(table):
-	headings = [str(th.get_text()).strip(' \t\n\r') for th in table.find("tr").find_all("th")]
+	headings = [th.get_text().strip(' \t\n\r') for th in table.find("tr").find_all("th")]
 	return headings
 
 def sort_html_table(table): 
 	content = []
 	for row in table.find_all('tr')[1:]: 
-		new_row = [str(td.get_text()).strip(' \t\n\r') for td in row.find_all('td')]
+		new_row = [td.get_text().strip(' \t\n\r') for td in row.find_all('td')]
 		content.append(new_row)
 	return content
 
